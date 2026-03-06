@@ -59,15 +59,15 @@ Given a buy order of size $Q$ executed over $N = 12$ bars (60 min), with per-bar
 
 **TWAP** — uniform target per bar:
 
-$$q_t^{\text{TWAP}} = \min\!\left(\frac{Q}{N},\;\rho\,V_t,\;Q - \sum_{s<t} q_s\right)$$
+$$q_t^{\text{TWAP}} = \min\!\left(\frac{Q}{N},\;\rho\,V_t,\;Q - \sum_{s \lt t} q_s\right)$$
 
 **Realized-volume VWAP (oracle)** — weights proportional to realized volume (in-sample):
 
-$$w_t^{\text{real}} = \frac{V_t}{\sum_s V_s}, \quad q_t^{\text{real}} = \min\!\left(Q\,w_t^{\text{real}},\;\rho\,V_t,\;Q - \sum_{s<t} q_s\right)$$
+$$w_t^{\text{real}} = \frac{V_t}{\sum_s V_s}, \quad q_t^{\text{real}} = \min\!\left(Q\,w_t^{\text{real}},\;\rho\,V_t,\;Q - \sum_{s \lt t} q_s\right)$$
 
-**Forecast-profile VWAP (ex-ante)** — weights from a historical intraday volume profile $\bar\varphi_t$:
+**Forecast-profile VWAP (ex-ante)** — weights from a historical intraday volume profile $\bar{\varphi}_t$:
 
-$$w_t^{\text{fcst}} \propto \bar\varphi_{k+t}, \quad q_t^{\text{fcst}} = \min\!\left(Q\,w_t^{\text{fcst}},\;\rho\,V_t,\;Q - \sum_{s<t} q_s\right)$$
+$$w_t^{\text{fcst}} \propto \bar{\varphi}_{k+t}, \quad q_t^{\text{fcst}} = \min\!\left(Q\,w_t^{\text{fcst}},\;\rho\,V_t,\;Q - \sum_{s \lt t} q_s\right)$$
 
 ### Metrics
 
